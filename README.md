@@ -2,4 +2,4 @@
 
 
 Read Bee reads out the intresting and focused content 
-Lets not miss out on anthing 
+Lets not miss out on anything 
