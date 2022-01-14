@@ -4,13 +4,16 @@
 
 # importing the pyttsx library
 import pyttsx3
+import os 
+
+path_to_read = ".\Data\sample_read.txt"
 
 # initialisation
 engine = pyttsx3.init()
 
 # testing
-engine.say("My first code on text-to-speech")
-engine.say("Built by Ramya, welcome !")
+engine.say("Welcome !")
+engine.say("Built by Ramya")
 engine.runAndWait()
 
 
@@ -30,11 +33,13 @@ engine.connect('started-utterance', onStart)
 engine.connect('started-word', onWord)
 engine.connect('finished-utterance', onEnd)
 
-sen = """Too bored to read the books yourself ?
-        Are you driving ? or travelling ? cant get youself a seat ?
-        Let this bot read it for you. 
-        All that needs to be done is scrape the data and bring it here.
-        Rest is taken care. """
+
+try:
+    with open(path_to_read ,'r') as fd:
+        sen = fd.readlines()
+except Exception as err:
+    print("Error: ", err )
+    sen = "Error occured lets try again"
 
 
 engine.say(sen)
